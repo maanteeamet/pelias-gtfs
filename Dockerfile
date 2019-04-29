@@ -16,4 +16,6 @@ RUN npm install
 
 RUN apk del build-dependencies
 
+RUN mkdir ./gtfs
+
 CMD "./import.sh"
