@@ -6,4 +6,6 @@ COPY ./ ./
 
 RUN npm install
 
-CMD ["node", "import.js", "-d", "$DATA", "--prefix=$PREFIX"]
+RUN curl -o gtfs.zip "$GTFS_URL" && unzip gtfs.zip -d /gtfs
+
+CMD ["node", "import.js", "-d", "/gtfs", "--prefix=$PREFIX"]
