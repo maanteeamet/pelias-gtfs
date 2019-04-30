@@ -10,12 +10,16 @@ RUN apk add --update --no-cache --virtual build-dependencies \
 
 WORKDIR /app
 
-COPY ./ ./
+COPY ./package.json ./package.json
 
 RUN npm install
 
-RUN apk del build-dependencies
+COPY ./ ./
 
 RUN mkdir ./gtfs
+
+RUN chown 1000:1000 -R ./
+
+RUN apk del build-dependencies
 
 CMD "./import.sh"
