@@ -1,5 +1,4 @@
 #!/bin/sh
-
-curl -o gtfs.zip "$GTFS_URL" \
-&& unzip -o gtfs.zip -d ./gtfs \
-&& node import.js -d ./gtfs --prefix="$PREFIX"
+curl -o /data/gtfs.zip "$GTFS_URL" \
+&& unzip -o /data/gtfs.zip -d /data/gtfs \
+&& node import.js -d /data/gtfs --prefix="$PREFIX"
